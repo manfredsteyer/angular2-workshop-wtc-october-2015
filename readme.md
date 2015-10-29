@@ -11,3 +11,8 @@ Dieses Beispiel gibt einen Überblick zu folgenden Aspekten von Angular 2:
 - Routing
 - Eigene Komponenten (Basics)
 
+# Vorbereitung
+
+```
+npm u
+```
