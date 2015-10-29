@@ -1,0 +1,35 @@
+<h2>Editieren</h2>
+<div style="text-alignment:center">
+	Hier würde die Detailansicht für den Flug #{{id}} zu sehen sein!
+	
+	<div *ng-if="message" class="alert alert-info">
+		{{message}}
+	</div>
+	
+	<edit-form [data]="flug" title="Flüge editieren" (save)="save()">
+		
+		<div class="form-group">
+			<label>Id</label>
+			<input [(ng-model)]="flug.id" class="form-control">	
+		</div>
+
+		<div class="form-group">
+			<label>Datum</label>
+			<input [(ng-model)]="flug.datum" class="form-control">	
+		</div>
+
+		<div class="form-group">
+			<label>Von</label>
+			<input [(ng-model)]="flug.abflugort" class="form-control">	
+		</div>
+
+		<div class="form-group">
+			<label>Nach</label>
+			<input [(ng-model)]="flug.zielort" class="form-control">	
+		</div>
+
+		
+
+	</edit-form>
+	
+</div>

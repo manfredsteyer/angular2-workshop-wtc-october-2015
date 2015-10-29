@@ -1,0 +1,16 @@
+<div class="container">
+	<h1>{{title}}</h1>
+	
+	<header>
+         <nav class="navbar navbar-default">
+             <ul class="nav navbar-nav">
+                 <li [class.active]="isActive('')"><a [router-link]="['/Home']">Home</a></li> 
+                 <li [class.active]="isActive('/flug-suchen')"><a [router-link]="['/FlugSuchen']">Suchen</a></li> 
+             </ul>
+        </nav>
+     </header>
+	
+	<div>
+		<router-outlet></router-outlet>
+	</div>
+</div>

@@ -1,0 +1,52 @@
+
+<h1>Flug suchen</h1>
+
+<form #f="form">
+	<div class="form-group">
+		<label>Von</label>
+		<input class="form-control" [(ng-model)]="von" city ng-control="von" ort required maxlength="30" minlength="2">
+		<show-error control="von" [errors]="['required', 'minlength', 'city', 'maxlength']"></show-error>
+	</div>
+	<div class="form-group">
+		<label>Nach</label>
+		<input class="form-control" [(ng-model)]="nach" ng-control="nach" required maxlength="30" minlength="2">
+		
+
+		
+		
+	</div>
+	<div class="form-group">
+		<input type="button" value="Suchen!" class="btn" (click)="suchen()">
+	</div>
+	
+</form>
+
+<div *ng-if="message" class="alert alert-info">
+	{{message}}
+</div>
+
+<table class="table table-striped" *ng-if="fluege.length > 0">
+	
+	<tr>
+		<th>Id</th>
+		<th>Datum</th>
+		<th>Von</th>
+		<th>Nach</th>
+		<th></th>
+	</tr>
+	
+	<!-- ng2-translate -->
+	
+	<tr *ng-for="#flug of fluege" [class.active]="flug == selectedFlug">
+		<td>{{flug.id}}</td>
+		<td>{{flug.datum.substr(0,10) }}</td>
+		<td>{{flug.abflugort | ort:'short' }}</td>
+		<td>{{flug.zielort | ort:'long' }}</td>
+		<td>
+			<a href="javascript:void(0)" (click)="selectFlug(flug)">Auswählen</a> |	
+			<a href="javascript:void(0)" [router-link]="['/FlugEdit', {id: flug.id}]">Edit</a>
+		</td>
+	</tr>
+	
+</table>
+

@@ -1,0 +1,67 @@
+
+<h1>Flug suchen</h1>
+
+<form [ng-form-model]="filter">
+	<div class="form-group">
+		<label>Von</label>
+		<input class="form-control" ng-control="von">
+		<div *ng-if="!filter.controls.von.valid">
+			Fehlerhafte Eingabe!!
+		</div>
+		<div *ng-if="filter.controls.von.hasError('required')">
+				Pflichtfeld!!
+		</div>
+		<div *ng-if="filter.controls.von.hasError('maxlength')">
+			Zu Lang!!
+		</div>
+		<div *ng-if="filter.controls.von.hasError('minlength')">
+			Zu Kurz!!
+		</div>
+		<div *ng-if="filter.controls.von.hasError('city')">
+			Diese Stadt wird nicht angeflogen!!
+		</div>
+
+	</div>
+	<div class="form-group">
+		<label>Nach</label>
+		<input class="form-control" ng-control="nach">
+		<div *ng-if="!filter.controls.nach.valid">
+			Fehlerhafte Eingabe!!
+		</div>
+
+		
+	</div>
+	<div class="form-group">
+		<input type="button" value="Suchen!" class="btn" (click)="suchen()">
+	</div>
+	
+</form>
+
+<div *ng-if="message" class="alert alert-info">
+	{{message}}
+</div>
+
+<table class="table table-striped" *ng-if="fluege.length > 0">
+	
+	<tr>
+		<th>Id</th>
+		<th>Datum</th>
+		<th>Von</th>
+		<th>Nach</th>
+		<th></th>
+	</tr>
+	
+	<!-- ng2-translate -->
+	
+	<tr *ng-for="#flug of fluege" [class.active]="flug == selectedFlug">
+		<td>{{flug.id}}</td>
+		<td>{{flug.datum.substr(0,10) }}</td>
+		<td>{{flug.abflugort | ort:'short' }}</td>
+		<td>{{flug.zielort | ort:'long' }}</td>
+		<td>
+			<a href="#" (click)="selectFlug(flug)">Auswählen</a>	
+		</td>
+	</tr>
+	
+</table>
+
