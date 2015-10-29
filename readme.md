@@ -13,7 +13,7 @@ Dieses Beispiel gibt einen Überblick zu folgenden Aspekten von Angular 2:
 
 # Vorbereitung
 
-Um nach dem Download die Libraries via npm (nodejs.org) zu beziehen, ist folgender Befehl im Projektverzeichnis abzusetzen:
+Um nach dem Download die Libraries via npm (nodejs.org) zu beziehen,folgenden Befehl im Projektverzeichnis ausführen:
 ```
 npm update
 ```
